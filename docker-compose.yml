@@ -1,0 +1,20 @@
+services:
+  web:
+    build: .
+    container_name: koa_app
+    ports:
+      - "4000:4000"
+    restart: always
+    volumes:
+      - ./data:/app/data
+      - ./scripts:/app/scripts
+    depends_on:
+      - sqlite_db
+
+  sqlite_db:
+    image: nouchka/sqlite3
+    volumes:
+      - ./data:/data
+    tty: true
+    restart: always
+    

@@ -1,0 +1,23 @@
+{
+  "name": "koa_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "PORT=4000 node index.js",
+    "build": "docker build -t koa_app .",
+    "run_docker_app": "docker run -t -i --rm -d -p 4000:4000 --name koa_app koa_app",
+    "stop_docker_app": "docker stop koa_app",
+    "run_docker_compose": "docker-compose up --build",
+    "stop_docker_compose": "docker-compose down",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.12",
+    "koa": "^2.15.3",
+    "koa-router": "^13.0.1",
+    "sqlite3": "^5.1.7"
+  }
+}
