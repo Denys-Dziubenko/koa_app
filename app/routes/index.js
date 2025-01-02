@@ -1,8 +1,8 @@
 const {
-    getUserById,
-    getUsersList,
-    addUser,
-} = require('../controllers/main');
+    getUserByIdAction,
+    getUsersListAction,
+    addUserAction,
+} = require('../controllers/mainController');
 
 const KoaRouter = require('koa-router');
 
@@ -12,8 +12,8 @@ router.get('/', async (ctx) => {
     ctx.body = 'Workin\' on it!';
 });
 
-router.get('/api/v1/get-user/:id', getUserById);
-router.get('/api/v1/get-users-list', getUsersList);
-router.post('/api/v1/add-user', addUser);
+router.get('/api/v1/get-user/:id', getUserByIdAction);
+router.get('/api/v1/get-users-list', getUsersListAction);
+router.post('/api/v1/add-user', addUserAction);
 
 module.exports = router;

@@ -17,6 +17,7 @@
   "dependencies": {
     "config": "^3.3.12",
     "koa": "^2.15.3",
+    "koa-bodyparser": "^4.4.1",
     "koa-router": "^13.0.1",
     "sqlite3": "^5.1.7"
   }
