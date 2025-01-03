@@ -17,7 +17,7 @@ app.use((ctx) => {
 const PORT = process.env.PORT || config.server.PORT;
 
 const server = app.listen(PORT, () => {
-    console.log(`Server running in http://127.0.0.1:${PORT}`);
+    console.log(`Server running in ${config.server.host}:${PORT}`);
 });
 
 module.exports = server;

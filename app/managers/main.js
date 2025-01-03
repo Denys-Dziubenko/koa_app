@@ -3,7 +3,7 @@ const {
     INSERT,
 } = require('../helpers/sql');
 
-const getAllUsers = () => SELECT('SELECT * FROM users')
+const getAllUsers = ({limit, offset} = {}) => SELECT('SELECT * FROM users LIMIT ? OFFSET ?', [limit, offset])
     .catch((err) => {
         console.error('getAllUsers err =>', err);
         return [];

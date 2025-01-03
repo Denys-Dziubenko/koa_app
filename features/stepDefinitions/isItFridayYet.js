@@ -13,7 +13,7 @@ const isItFriday = (today) => {
 }
 
 Given('today is Sunday', () => {
-  today = 'Sunday';
+    today = 'Sunday';
 });
 
 Given('today is Friday', () => {

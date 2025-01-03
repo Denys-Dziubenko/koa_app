@@ -5,8 +5,21 @@ const {
 } = require('../managers/main');
 
 const getUsersListAction = async (ctx) => {
+    const [
+        defaultLimit,
+        maxLimit,
+        defaultOffset,
+    ] = [
+            5,
+            100,
+            0
+        ];
+    let { limit = defaultLimit, offset = defaultOffset } = ctx.query;
+    if (limit > maxLimit) limit = defaultLimit;
+    if (offset < 0) offset = defaultOffset;
+
     ctx.body = {
-        users: await getAllUsers(),
+        users: await getAllUsers({ limit, offset }),
     };
 };
 
