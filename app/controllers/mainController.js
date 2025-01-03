@@ -18,9 +18,7 @@ const getUsersListAction = async (ctx) => {
     if (limit > maxLimit) limit = defaultLimit;
     if (offset < 0) offset = defaultOffset;
 
-    ctx.body = {
-        users: await getAllUsers({ limit, offset }),
-    };
+    ctx.body = await getAllUsers({ limit, offset });
 };
 
 const getUserByIdAction = async (ctx) => {

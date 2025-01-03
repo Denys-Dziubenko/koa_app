@@ -13,4 +13,11 @@ SQL_COMMAND="CREATE TABLE IF NOT EXISTS $TABLE_NAME (
 # Execute the SQL command
 docker-compose exec sqlite_db sh -c "sqlite3 $DB_PATH \"$SQL_COMMAND\""
 
-echo "Table $TABLE_NAME created successfully in $DB_PATH"
+# Fill Test Data
+docker-compose exec sqlite_db sh -c "sqlite3 $DB_PATH \"INSERT INTO $TABLE_NAME 
+    (name, country)
+    VALUES ('Alice', 'USA'),
+    ('Ben', 'India'),
+    ('Simon', 'Israel');\""
+
+echo "Table $TABLE_NAME created and filled with TEST data successfully in $DB_PATH"
