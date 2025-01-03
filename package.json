@@ -12,6 +12,7 @@
     "stop_docker_app": "docker stop koa_app",
     "run_docker_compose": "docker-compose up --build",
     "stop_docker_compose": "docker-compose down",
+    "rebuild_docker_compose": "docker-compose down && docker-compose up --build",
     "test": "cucumber-js"
   },
   "author": "",

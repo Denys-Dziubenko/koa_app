@@ -43,6 +43,7 @@ const addUserAction = async (ctx) => {
     } else {
         const id = await addUser(name, country);
         body.id = id;
+        ctx.status = 201;
     }
     ctx.body = body;
 };
