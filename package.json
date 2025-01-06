@@ -13,7 +13,7 @@
     "run_docker_compose": "docker-compose up --build",
     "stop_docker_compose": "docker-compose down",
     "rebuild_docker_compose": "docker-compose down && docker-compose up --build",
-    "test": "cucumber-js"
+    "test": "npm run init_table; cucumber-js"
   },
   "author": "",
   "license": "ISC",
