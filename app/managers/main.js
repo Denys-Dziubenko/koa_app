@@ -1,6 +1,7 @@
 const {
     SELECT,
     INSERT,
+    DELETE,
 } = require('../helpers/sql');
 
 const getAllUsers = ({limit, offset} = {}) => SELECT('SELECT * FROM users LIMIT ? OFFSET ?', [limit, offset])
@@ -23,8 +24,21 @@ const addUser = (name, country) => INSERT(
     return null;
 });
 
+const dellUserById = (id = 0) => {
+    if (!id) {
+        console.error('dellUserById: Invalid id');
+        return Promise.resolve(null);
+    }
+    return DELETE('DELETE FROM users WHERE id = ?', [id], 'delete')
+        .catch((err) => {
+            console.error('dellUserById err =>', err);
+            return null;
+        });
+}
+
 module.exports = {
     getAllUsers,
     getUserById,
     addUser,
+    dellUserById,
 };

@@ -2,7 +2,9 @@ const {
     getUserByIdAction,
     getUsersListAction,
     addUserAction,
+    dellUserAction,
 } = require('../controllers/mainController');
+const { authMiddleware } = require('../middlewares/auth');
 
 const KoaRouter = require('koa-router');
 
@@ -15,5 +17,10 @@ router.get('/', async (ctx) => {
 router.get('/api/v1/get-user/:id', getUserByIdAction);
 router.get('/api/v1/get-users-list', getUsersListAction);
 router.post('/api/v1/add-user', addUserAction);
+router.delete(
+    '/api/v1/dell-user/:id',
+    authMiddleware,
+    dellUserAction
+);
 
 module.exports = router;

@@ -28,3 +28,10 @@ Feature: Test users API
         | name | country | statusCode |
         | John | USA     | 201        |
         | Jane | UK      | 201        |
+
+    Scenario Outline: Delete single user
+        Given I have request with valid ID to delete
+        When I delete a single user by ID
+        Then I should get a response with deleted status and status code 200
+            | Fields     | Values |
+            | statusCode | 200    |

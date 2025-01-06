@@ -2,6 +2,7 @@ const {
     getAllUsers,
     getUserById,
     addUser,
+    dellUserById,
 } = require('../managers/main');
 
 const getUsersListAction = async (ctx) => {
@@ -48,8 +49,21 @@ const addUserAction = async (ctx) => {
     ctx.body = body;
 };
 
+const dellUserAction = async (ctx) => {
+    const id = Number(ctx.params.id) || 0;
+    const body = { deleted: 0 };
+
+    if (!id) body.errMsg = 'Invalid id';
+    else {
+        body.deleted = await dellUserById(id);
+        if (!Number(body.deleted)) body.errMsg = 'User not found';
+    }
+    ctx.body = body;
+};
+
 module.exports = {
     getUserByIdAction,
     getUsersListAction,
     addUserAction,
+    dellUserAction,
 };
