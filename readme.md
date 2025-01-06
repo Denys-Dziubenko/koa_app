@@ -73,6 +73,15 @@ Rebuild and Restart Docker Compose Containers:
  - **URL Parameters:**
     - `id` (integer): The ID of the user
 
+### Delete User by ID
+
+ - **URL:** `/api/v1/delete-user/:id`
+ - **Method:** `DELETE`
+ - **URL Parameters:**
+    - `id` (integer): The ID of the user
+ - **Headers:**
+    - `x-auth-key (string):` The authentication key
+
 ## 6. Configs
 
 The application configuration is managed using the config package. You can find the configuration files in the config directory.
